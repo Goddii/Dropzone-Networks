@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - DropZone Networks</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            /* Space-themed fallback and gradient overlay */
+            background-color: #050510;
+            background: linear-gradient(rgba(5, 5, 16, 0.85), rgba(0, 0, 0, 0.95)),
+                url('');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background: rgba(0, 0, 0, 0.5) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px 40px;
+        }
+
+        .navbar-brand {
+            color: white !important;
+            font-weight: 800;
+            font-size: 28px;
+            letter-spacing: 1px;
+        }
+
+        .navbar-brand span {
+            color: #00d4ff;
+        }
+
+        .nav-item a {
+            color: rgba(255, 255, 255, 0.8) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .nav-link.active,
+        .nav-item a:hover {
+            color: #00d4ff !important;
+        }
+
+        .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+
+        /* Typography & Components */
+        .page-header {
+            padding: 160px 0 80px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .page-header h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .page-header h1 span {
+            color: #00d4ff;
+        }
+
+        .section-title {
+            color: #00d4ff;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1rem;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 40px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            height: 100%;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: #00d4ff;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #00d4ff;
+        }
+
+        .btn-cyan {
+            background-color: #00d4ff;
+            color: #000;
+            font-weight: 600;
+            padding: 15px 40px;
+            border-radius: 30px;
+            border: 2px solid #00d4ff;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1.1rem;
+        }
+
+        .btn-cyan:hover {
+            background-color: transparent;
+            color: #00d4ff;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+
+        .content-image {
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        /* Responsive Fixes */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.8rem;
+            }
+
+            .navbar {
+                padding: 15px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">DropZone <span>Networks</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto gap-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#join">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Bridging the <span>Digital Divide</span></h1>
+            <p class="lead opacity-75 mt-3 max-w-75 mx-auto">Providing blazing-fast, reliable, and affordable internet
+                to Kenyan communities.</p>
+        </div>
+    </header>
+
+    <!-- Our Story Section -->
+    <section class="py-5 mt-4">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <div class="section-title">Our Story</div>
+                    <h2 class="display-5 fw-bold mb-4">Making "Unlimited" Actually Mean Unlimited</h2>
+                    <p class="fs-5 opacity-75 mb-4">
+                        DropZone Networks was born from a simple observation: Kenyan homes and businesses were paying
+                        premium prices for capped, throttled, and unreliable internet. We believed our communities
+                        deserved better.
+                    </p>
+                    <p class="fs-5 opacity-75 mb-4">
+                        Starting in Nairobi, our vision was to build an infrastructure that doesn't just connect people,
+                        but empowers them. We set out to redefine broadband by removing data caps, eliminating
+                        artificial throttling, and ensuring that whether you are a remote worker, a small business
+                        owner, or a family streaming movies, your connection remains steadfast.
+                    </p>
+                    <p class="fs-5 opacity-75">
+                        Today, we are bridging the digital divide with high-tech solutions, proving that world-class,
+                        futuristic connectivity can be affordable and accessible right here at home.
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://placehold.co/800x600/050510/00d4ff?text=Team+at+Work" alt="DropZone Team at Work"
+                        class="content-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Technology Section -->
+    <section class="py-5 bg-dark bg-opacity-50">
+        <div class="container py-4">
+            <div class="row align-items-center g-5 flex-lg-row-reverse">
+                <div class="col-lg-6">
+                    <div class="section-title">The Technology</div>
+                    <h2 class="display-5 fw-bold mb-4">Next-Generation Infrastructure</h2>
+                    <p class="fs-5 opacity-75 mb-4">
+                        At the core of DropZone Networks is a sophisticated blend of <strong>Fiber-to-the-Home
+                            (FTTH)</strong> and advanced wireless broadband technology.
+                    </p>
+                    <p class="fs-5 opacity-75">
+                        Our fiber-optic backbone operates at the speed of light, providing incredible bandwidth and
+                        ultra-low latency. For areas where fiber hasn't reached yet, our enterprise-grade wireless
+                        network beams high-speed connectivity directly to your location. This dual-approach ensures that
+                        our network grid is robust, redundant, and ready for the future of digital innovation.
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://placehold.co/800x600/050510/00d4ff?text=Network+Tower+Against+Sunset"
+                        alt="Network Tower against a sunset" class="content-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us & Core Values -->
+    <section class="py-5 my-4">
+        <div class="container">
+            <div class="text-center mb-5">
+                <div class="section-title">Why DropZone</div>
+                <h2 class="display-5 fw-bold">Our Core Values</h2>
+            </div>
+            <div class="row g-4">
+                <!-- Value 1 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="glass-card">
+                        <div class="icon-box">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Integrity</h4>
+                        <p class="opacity-75 mb-0">No hidden fees, no surprise data caps. We deliver exactly what we
+                            promise with complete transparency.</p>
+                    </div>
+                </div>
+                <!-- Value 2 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="glass-card">
+                        <div class="icon-box">
+                            <i class="bi bi-rocket-takeoff"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Innovation</h4>
+                        <p class="opacity-75 mb-0">Continuously upgrading our grid with futuristic tech to ensure you
+                            experience blazing-fast speeds.</p>
+                    </div>
+                </div>
+                <!-- Value 3 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="glass-card">
+                        <div class="icon-box">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Community First</h4>
+                        <p class="opacity-75 mb-0">Built by Kenyans, for Kenyans. We prioritize connecting local
+                            neighborhoods and small businesses.</p>
+                    </div>
+                </div>
+                <!-- Value 4 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="glass-card">
+                        <div class="icon-box">
+                            <i class="bi bi-activity"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Steadfast Reliability</h4>
+                        <p class="opacity-75 mb-0">With <strong>99.9% uptime</strong> and <strong>24/7 local
+                                support</strong>, we keep you online when it matters most.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="join" class="py-5 mb-5">
+        <div class="container text-center">
+            <div class="glass-card" style="padding: 60px 20px; background: rgba(0, 212, 255, 0.05);">
+                <h2 class="display-5 fw-bold mb-4">Ready to Experience the Future?</h2>
+                <p class="fs-5 opacity-75 mb-5 max-w-75 mx-auto">Join the DropZone network today and unlock the true
+                    potential of unlimited internet.</p>
+                <a href="#" class="btn btn-cyan">Join Our Network <i class="bi bi-arrow-right ms-2"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 text-center">
+        <div class="container">
+            <p class="opacity-50 mb-0">&copy; 2026 DropZone Networks. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

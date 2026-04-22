@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Coverage - DropZone Networks</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            background-color: #050510;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .coverage-card {
+            background: rgba(10, 10, 10, 0.8);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
+            padding: 3rem 2rem;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .form-control-custom {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .form-control-custom:focus {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #00d4ff;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+            color: white;
+        }
+
+        .form-control-custom::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .btn-cyan {
+            background-color: #00d4ff;
+            color: #000;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid #00d4ff;
+        }
+
+        .btn-cyan:hover {
+            background-color: transparent;
+            color: #00d4ff;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+        }
+
+        .btn-outline-white {
+            background-color: transparent;
+            color: #fff;
+            font-weight: 600;
+            border: 2px solid #fff;
+            transition: all 0.3s;
+        }
+
+        .btn-outline-white:hover {
+            background-color: #fff;
+            color: #000;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+        
+        .alert-custom-success {
+            background: rgba(25, 135, 84, 0.1);
+            border: 1px solid rgba(25, 135, 84, 0.5);
+            color: #75b798;
+        }
+
+        .alert-custom-warning {
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.5);
+            color: #ffda6a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container px-3 d-flex justify-content-center">
+        <div class="coverage-card text-center">
+            <h2 class="fw-bold mb-3">Check <span style="color: #00d4ff;">Coverage</span></h2>
+            <p class="text-light opacity-75 mb-4">Enter your location to see if you are in a DropZone High-Speed Area.</p>
+            
+            <div class="input-group mb-4">
+                <span class="input-group-text bg-transparent border-end-0" style="border-color: rgba(255,255,255,0.1); color: #00d4ff;">
+                    <i class="bi bi-geo-alt-fill"></i>
+                </span>
+                <input type="text" id="locationInput" class="form-control form-control-lg form-control-custom border-start-0 ps-0" placeholder="e.g. Kawangware, Kibera" aria-label="Location">
+                <button class="btn btn-cyan px-4" type="button" onclick="checkCoverage()">Check</button>
+            </div>
+
+            <div id="resultArea" class="mb-4 text-start"></div>
+
+            <div class="mt-4 pt-3 border-top border-secondary">
+                <a href="index.html" class="btn btn-outline-white px-4"><i class="bi bi-arrow-left me-2"></i>Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkCoverage() {
+            const input = document.getElementById('locationInput').value.trim().toLowerCase();
+            const resultDiv = document.getElementById('resultArea');
+            
+            if (input === '') {
+                resultDiv.innerHTML = '';
+                return;
+            }
+
+            if (input === 'kawangware') {
+                resultDiv.innerHTML = `
+                    <div class="alert alert-custom-success d-flex align-items-center" role="alert">
+                        <i class="bi bi-check-circle-fill fs-4 me-3"></i>
+                        <div>
+                            <strong>Good News!</strong> You are in a DropZone High-Speed Area.
+                        </div>
+                    </div>`;
+            } else {
+                const formattedInput = input.charAt(0).toUpperCase() + input.slice(1);
+                resultDiv.innerHTML = `
+                    <div class="alert alert-custom-warning d-flex align-items-start" role="alert">
+                        <i class="bi bi-exclamation-circle-fill fs-4 me-3 mt-1"></i>
+                        <div>
+                            <strong>Coming Soon to ${formattedInput}!</strong><br>
+                            We are expanding rapidly. <a href="index.html#contact" class="text-warning fw-bold text-decoration-underline">Leave your contact info</a> to be notified when we arrive in your area.
+                        </div>
+                    </div>`;
+            }
+        }
+
+        // Allow pressing Enter to search
+        document.getElementById('locationInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                checkCoverage();
+            }
+        });
+    </script>
+</body>
+</html>
